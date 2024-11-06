@@ -6,13 +6,13 @@ const Customer = require("./src/models/Customer");
 
 const putCustomer = async () => {
   try {
+    const name = prompt("What is the customer name? ");
+    const age = prompt("What is the customer age? ");
+    const customer = await Customer.create({ name, age });
+    console.log("Customer created: ", customer);
   } catch (error) {
     console.error(error.message);
   }
-  const name = prompt("What is the customer name? ");
-  const age = prompt("What is the customer age? ");
-  const customer = await Customer.create({ name, age });
-  console.log("Customer created: ", customer);
 };
 
 const getCustomers = async () => {
